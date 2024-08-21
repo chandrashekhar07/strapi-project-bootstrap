@@ -1,6 +1,6 @@
-export default function ({ env }: { env: any }) {
+export default function ({ env }) {
   return [
-    "strapi::errors",
+    "strapi::logger",
     {
       name: "strapi::security",
       config: {
@@ -12,14 +12,14 @@ export default function ({ env }: { env: any }) {
               "'self'",
               "data:",
               "blob:",
-              "dl.airtable.com",
+              "market-assets.strapi.io",
               env("AWS_S3_BUCKET_URL"),
             ],
             "media-src": [
               "'self'",
               "data:",
               "blob:",
-              "dl.airtable.com",
+              "market-assets.strapi.io",
               env("AWS_S3_BUCKET_URL"),
             ],
             upgradeInsecureRequests: null,
@@ -27,9 +27,10 @@ export default function ({ env }: { env: any }) {
         },
       },
     },
+    "strapi::errors",
+    "strapi::security",
     "strapi::cors",
     "strapi::poweredBy",
-    "strapi::logger",
     "strapi::query",
     "strapi::body",
     "strapi::session",
